@@ -4,14 +4,14 @@ import * as S from './style';
 interface ButtonProps extends S.ButtonStyleProps {
   dataTestId?: string;
   onClick?: (e: FormEvent) => void;
-  buttonText: string;
+  buttonContent: string | JSX.Element;
   disabled?: boolean;
 }
 
-const Button = ({ size, type, dataTestId, onClick, buttonText, disabled }: ButtonProps) => {
+const Button = ({ size, type, dataTestId, onClick, disabled, buttonContent }: ButtonProps) => {
   return (
     <S.Button size={size} type={type} data-testid={dataTestId} onClick={onClick} disabled={disabled}>
-      {buttonText}
+      {buttonContent}
     </S.Button>
   );
 };
