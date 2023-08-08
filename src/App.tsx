@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { URL } from './constants';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ToDo from './pages/ToDo';
@@ -12,9 +13,9 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Welcome />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/todo" element={<ToDo />} />
+          <Route path={URL.SIGN_UP} element={<SignUp />} />
+          <Route path={URL.SIGN_IN} element={<SignIn />} />
+          <Route path={URL.TODO} element={<ToDo />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
