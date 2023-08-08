@@ -6,6 +6,9 @@ export interface ButtonStyleProps {
 }
 
 export const Button = styled.button<ButtonStyleProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 8px;
   height: 3vh;
