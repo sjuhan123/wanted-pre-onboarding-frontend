@@ -3,8 +3,7 @@ import { ERROR_MESSAGE } from '../../constants';
 
 const useFetch = <T,>(url?: string) => {
   const [data, setData] = useState<T>();
-  const [status, setStatus] = useState<'loading' | 'error' | 'success'>('loading');
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
 
   const fetchData = async ({
     url,
@@ -22,6 +21,8 @@ const useFetch = <T,>(url?: string) => {
     try {
       if (!url) return;
 
+      setStatus('loading');
+
       const JWTToken = localStorage.getItem('JWTToken');
 
       const headers = {
@@ -34,9 +35,12 @@ const useFetch = <T,>(url?: string) => {
         headers,
         body,
       });
-      const data = await res.json();
 
-      if (isGetData) setData(data);
+      if (isGetData) {
+        const data = await res.json();
+
+        setData(data);
+      }
 
       if (res.status === 400) throw new Error(ERROR_MESSAGE[400]);
       if (res.status === 404) throw new Error(ERROR_MESSAGE[404]);
@@ -47,9 +51,8 @@ const useFetch = <T,>(url?: string) => {
 
       setStatus('success');
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof Error && status !== 'success') {
         setStatus('error');
-        setErrorMessage(error.message);
       }
     }
   };
@@ -58,7 +61,7 @@ const useFetch = <T,>(url?: string) => {
     fetchData({ url, isGetData: true });
   }, [url]);
 
-  return { data, status, errorMessage, fetchData };
+  return { data, status, fetchData };
 };
 
 export default useFetch;
