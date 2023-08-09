@@ -6,8 +6,6 @@ interface TextInputProps extends S.InputProps {
   dataTestId?: string;
   placeholder?: string;
   onChange: ({ name, value }: { name: string; value: string }) => void;
-  onFocus?: () => void;
-  onBlur?: () => void;
   value?: string;
   $isValid?: boolean;
   helperText?: string;
@@ -18,8 +16,6 @@ const TextInput = ({
   dataTestId,
   placeholder,
   onChange,
-  onFocus,
-  onBlur,
   value = '',
   $isValid = true,
   helperText,
@@ -42,8 +38,6 @@ const TextInput = ({
         data-testid={dataTestId}
         placeholder={placeholder}
         onChange={handleChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
         $isValid={!$isValid}
       />
       <S.HelperText>{$isValid && helperText}</S.HelperText>
