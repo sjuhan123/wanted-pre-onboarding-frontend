@@ -7,7 +7,7 @@ export interface InputProps {
 export const Input = styled.input<InputProps>`
   border: 1px solid ${({ theme, $isValid }) => ($isValid ? theme.COLORS.ROYAL_BULE : theme.COLORS.RED)};
   border-radius: 8px;
-  height: 3vh;
+  height: 27px;
   width: 100%;
   cursor: pointer;
   text-align: center;
