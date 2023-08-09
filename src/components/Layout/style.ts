@@ -14,9 +14,10 @@ export const LayoutBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    margin: 2rem;
     font-size: 60px;
     font-weight: bold;
+    cursor: pointer;
   }
 
   main {
@@ -24,6 +25,6 @@ export const LayoutBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 `;
