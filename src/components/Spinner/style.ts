@@ -15,10 +15,3 @@ export const Spinner = styled.div`
   border-radius: 50%;
   animation: ${spinAnimation} 1s linear infinite;
 `;
-
-/* ${({ isDynamic }) =>
-    isDynamic &&
-    css`
-      top: 15%;
-      left: 15%;
-    `} */
