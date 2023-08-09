@@ -1,15 +1,17 @@
 import { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 
 interface LayoutProps {
-  header: string;
   children: ReactNode;
 }
 
-const Layout = ({ header, children }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
+  const navigate = useNavigate();
+
   return (
     <S.LayoutBox>
-      <header>{header}</header>
+      <header onClick={() => navigate('/')}>TODO APP</header>
       <main>{children}</main>
     </S.LayoutBox>
   );

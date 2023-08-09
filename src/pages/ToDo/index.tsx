@@ -43,7 +43,7 @@ const ToDo = () => {
   }, []);
 
   return (
-    <Layout header="TODO LIST">
+    <Layout>
       <ToDoAdd handleChange={handleChange} handleSubmit={handleSubmit} />
       <ToDoList />
     </Layout>

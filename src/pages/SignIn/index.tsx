@@ -47,7 +47,7 @@ const SignIn = () => {
   }, []);
 
   return (
-    <Layout header="SIGN IN">
+    <Layout>
       <TextInput
         name="email"
         dataTestId={DATA_TEST_ID.INPUT.EMAIL}
@@ -72,6 +72,7 @@ const SignIn = () => {
         disabled={!isValid}
         onClick={handleSubmit}
       />
+      <Button size="M" type="secondary" buttonContent="회원가입" onClick={() => navigate(URL.SIGN_UP)} />
     </Layout>
   );
 };
