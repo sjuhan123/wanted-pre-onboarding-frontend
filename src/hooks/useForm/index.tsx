@@ -1,8 +1,7 @@
 import { FormEvent, useState } from 'react';
 
 interface FormValues {
-  email: string;
-  password: string;
+  [key: string]: string;
 }
 
 interface Props {
