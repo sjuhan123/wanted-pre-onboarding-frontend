@@ -23,10 +23,10 @@ const useFetch = <T,>(url?: string) => {
 
       setStatus('loading');
 
-      const JWTToken = localStorage.getItem('JWTToken');
+      const token = localStorage.getItem('token');
 
       const headers = {
-        Authorization: `Bearer ${JWTToken}`,
+        Authorization: `Bearer ${token}`,
         ...contentsType,
       };
 
